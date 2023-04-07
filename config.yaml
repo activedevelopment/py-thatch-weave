@@ -1,6 +1,6 @@
 openai:
-  api_key: "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"
-  engine: "text-davinci-002"
+  api_key: 'DO-NOT-PUT-ANY-KEY-HERE'
+  engine: 'text-davinci-002'
 
 params:
   temperature: 0.7
