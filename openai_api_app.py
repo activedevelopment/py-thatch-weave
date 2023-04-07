@@ -1,13 +1,23 @@
 import openai
 import yaml
 import os
+from dotenv import load_dotenv
+
+# Load the environment variables from the .env file
+load_dotenv()
+
+# Read the API key from the environment variable
+api_key = os.environ.get("OPENAI_API_KEY")
+
+if not api_key:
+    raise ValueError("OPENAI_API_KEY environment variable is not set")
+
+# Set up the OpenAI API client
+openai.api_key = api_key
 
 # Read the config.yaml file
 with open("config.yaml", "r") as yaml_file:
     config = yaml.safe_load(yaml_file)
-
-# Set up the OpenAI API client
-openai.api_key = config["openai"]["api_key"]
 
 # Read the prompts from prompts.txt
 with open("prompts.txt", "r") as prompts_file:
